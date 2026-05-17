@@ -4,6 +4,28 @@
 */
 
 function isPalindrome(str) {
+  let filteredString = str
+    .toLowerCase()
+    .split("")
+    .filter(
+      (char) =>
+        char !== "?" &&
+        char !== " " &&
+        char !== "!" &&
+        char !== "." &&
+        char !== ","
+    )
+    .join("");
+  let left = 0;
+  let right = filteredString.length - 1;
+  while (left <= right) {
+    if (filteredString[left] == filteredString[right]) {
+      left++;
+      right--;
+    } else {
+      return false;
+    }
+  }
   return true;
 }
 
